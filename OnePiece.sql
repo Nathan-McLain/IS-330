@@ -19,7 +19,7 @@ CREATE TABLE Characters (
     devil_fruit VARCHAR(100),   -- Devil fruit ability (if applicable)
     crew VARCHAR(100),          -- Pirate crew
     haki_user BOOLEAN DEFAULT FALSE, -- Whether the character is a Haki user
-    bounty DECIMAL(15, 2) DEFAULT 0  -- Bounty amount
+    bounty BIGINT(15) DEFAULT 0 NOT NULL  -- Bounty amount
 );
 
 -- Table: Episodes
@@ -101,7 +101,20 @@ VALUES ('admin', 'hashed_password', 'admin@onepiece.com', 'admin');
 
 -- Insert a character
 INSERT INTO Characters (name, description, devil_fruit, crew, haki_user, bounty)
-VALUES ('Monkey D. Luffy', 'Captain of the Straw Hat Pirates', 'Gomu Gomu no Mi', 'Straw Hat Pirates', TRUE, 1500000000);
+VALUES 
+('Monkey D. Luffy', 'Captain of the Straw Hat Pirates', 'Gomu Gomu no Mi', 'Straw Hat Pirates', TRUE, 1500000000),
+('Roronoa Zoro', 'Straw Hat Pirates Swordsman', NULL, 'Straw Hat Pirates', TRUE, 320000000),
+('Nami', 'Straw Hat Pirates Navigator', NULL, 'Straw Hat Pirates', FALSE, 66000000),
+('Sanji', 'Straw Hat Pirates Cook', NULL, 'Straw Hat Pirates', TRUE, 330000000),
+('Shanks', 'Captain of the Red Hair Pirates', NULL, 'Red Hair Pirates', TRUE, 4048900000),
+('Big Mom', 'Captain of the Big Mom Pirates', 'Soru Soru no Mi', 'Big Mom Pirates', TRUE, 4388000000),
+('Buggy', 'Leader of Buggy’s Delivery', 'Bara Bara no Mi', 'Buggy’s Delivery', TRUE, 3150000000),
+('Tony Tony Chopper', 'Doctor of the Straw Hat Pirates', 'Hito Hito no Mi', 'Straw Hat Pirates', FALSE, 1000),
+('Monkey D. Dragon', 'Leader of the Revolutionary Army', NULL, 'Revolutionary Army', TRUE, 0),
+('Portgas D. Ace', 'Commander of the Whitebeard Pirates', 'Mera Mera no Mi', 'Whitebeard Pirates', FALSE, 550000000),
+('Sabo', 'Chief of Staff of the Revolutionary Army', 'Mera Mera no Mi', 'Revolutionary Army', TRUE, 602000000),
+('Edward Newgate (Whitebeard)', 'Captain of the Whitebeard Pirates', 'Gura Gura no Mi', 'Whitebeard Pirates', TRUE, 5046000000);
+
 
 -- Insert an episode
 INSERT INTO Episodes (title, air_date, summary)
@@ -113,7 +126,13 @@ VALUES ('One Piece', 10000000000, 'The ultimate treasure sought by all pirates.'
 
 -- Insert a devil fruit
 INSERT INTO Devil_Fruits (name, type, description)
-VALUES ('Gomu Gomu no Mi', 'Paramecia', 'Grants the user a body made of rubber.');
+VALUES 
+('Gomu Gomu no Mi', 'Paramecia', 'Allows the user\'s body to stretch like rubber. Used by Monkey D. Luffy.'),
+('Soru Soru no Mi', 'Paramecia', 'Gives the user control over souls. Used by Big Mom.'),
+('Bara Bara no Mi', 'Paramecia', 'Allows the user to split their body into pieces. Used by Buggy.'),
+('Hito Hito no Mi', 'Zoan', 'Grants human intelligence and form to the user. Used by Tony Tony Chopper.'),
+('Mera Mera no Mi', 'Logia', 'Allows the user to create and control fire. Used by Portgas D. Ace and later Sabo.'),
+('Gura Gura no Mi', 'Paramecia', 'Gives the user the ability to create earthquakes. Used by Edward Newgate (Whitebeard).');
 
 -- Associate a character with an episode
 INSERT INTO Character_Episode (character_id, episode_id)
@@ -123,5 +142,6 @@ VALUES (1, 1);
 INSERT INTO Character_DevilFruit (character_id, fruit_id)
 VALUES (1, 1);
 
-SELECT * FROM Characters;
+SELECT * FROM Characters
+
 
