@@ -6,10 +6,13 @@ USE one_piece_db;
 CREATE TABLE Users (
     user_id INT AUTO_INCREMENT PRIMARY KEY,
     username VARCHAR(50) NOT NULL UNIQUE,
-    password VARCHAR(100) NOT NULL,
+    password VARCHAR(255) NOT NULL,
     email VARCHAR(100) NOT NULL UNIQUE,
-    role ENUM('admin', 'user') NOT NULL DEFAULT 'user'
+    role ENUM('admin', 'standard') DEFAULT 'standard' NOT NULL,
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    last_login TIMESTAMP NULL
 );
+
 
 -- Table: Characters
 CREATE TABLE Characters (
@@ -25,9 +28,10 @@ CREATE TABLE Characters (
 -- Table: Episodes
 CREATE TABLE Episodes (
     episode_id INT AUTO_INCREMENT PRIMARY KEY,
+    episode_number INT,
     title VARCHAR(100) NOT NULL,
     air_date DATE NOT NULL,
-    summary TEXT
+    duration INT
 );
 
 -- Table: Treasures
@@ -96,8 +100,10 @@ CREATE TABLE Character_DevilFruit (
 
 
 -- Insert a user
-INSERT INTO Users (username, password, email, role)
-VALUES ('admin', 'hashed_password', 'admin@onepiece.com', 'admin');
+INSERT INTO Users (username, password, email, role) 
+VALUES ('Admin', 'TestP@ss', 'Admin@example.com', 'admin'),
+	   ('user2','p@ss','standard@example.com','stamdard');
+
 
 -- Insert a character
 INSERT INTO Characters (name, description, devil_fruit, crew, haki_user, bounty)
@@ -117,8 +123,8 @@ VALUES
 
 
 -- Insert an episode
-INSERT INTO Episodes (title, air_date, summary)
-VALUES ('The Beginning of the Great Adventure', '1999-10-20', 'Luffy sets out on his journey to become Pirate King.');
+INSERT INTO Episodes (title, air_date, duration)
+VALUES ('Romance Dawn', '1999-10-20', '24');
 
 -- Insert a treasure
 INSERT INTO Treasures (name, value, description, location)
@@ -141,6 +147,7 @@ VALUES (1, 1);
 -- Associate a character with a devil fruit
 INSERT INTO Character_DevilFruit (character_id, fruit_id)
 VALUES (1, 1);
+
 
 SELECT * FROM Characters
 
