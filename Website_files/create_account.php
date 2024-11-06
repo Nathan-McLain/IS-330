@@ -143,7 +143,7 @@ $conn->close();
             <input type="submit" value="Create Account">
         </form>
 
-        <a href="login.php">Already have an account? Log in here.</a>
+        <a href="..\index.php">Already have an account? Log in here.</a>
     </div>
 </body>
 </html>

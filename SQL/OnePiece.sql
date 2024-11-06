@@ -101,8 +101,7 @@ CREATE TABLE Character_DevilFruit (
 
 -- Insert a user
 INSERT INTO Users (username, password, email, role) 
-VALUES ('Admin', 'TestP@ss', 'Admin@example.com', 'admin'),
-	   ('user2','p@ss','standard@example.com','stamdard');
+VALUES ('Admin', '$2y$10$SGEqchu/iwfr/7RlihPKU.hvnFxHm06sOHvNJFDWFgqvqgzOmBbdi', 'Admin@example.com', 'admin'),
 
 
 -- Insert a character

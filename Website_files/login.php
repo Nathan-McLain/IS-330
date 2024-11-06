@@ -1,6 +1,6 @@
 <?php
 session_start();
-include 'db_connect.php'; 
+include 'db_connect.php';
 
 $error = '';
 
@@ -27,13 +27,18 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                 $_SESSION['username'] = $user['username'];
                 $_SESSION['role'] = $user['role'];
                 
-                header("Location: dashboard.php"); // Redirect to a dashboard page
+                // Redirect based on role
+                if ($user['role'] == 'admin') {
+                    header("Location: admin_dashboard.php"); // Redirect to admin dashboard
+                } else {
+                    header("Location: dashboard.php"); // Redirect to standard user dashboard
+                }
                 exit();
             } else {
-                $error = "Invalid password.";
+                $error = "Username or password incorrect.";
             }
         } else {
-            $error = "User not found.";
+            $error = "Username or password incorrect.";
         }
         $stmt->close();
     }
@@ -41,12 +46,27 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 $conn->close();
 ?>
 
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Login</title>
+<body>
+    <div class="container">
+        <h1>Login</h1>
+
+        <?php if ($error): ?>
+            <div class="error"><?php echo $error; ?></div>
+        <?php endif; ?>
+
+        <form method="POST" action="login.php">
+            <input type="text" name="username" placeholder="Username" required>
+            <input type="password" name="password" placeholder="Password" required>
+            <input type="submit" value="Login">
+        </form>
+
+        <a href="create_account.php">Don't have an account? Sign up here.</a>
+    </div>
+</body>
+</html>
+
+
+
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -121,22 +141,4 @@ $conn->close();
             text-decoration: underline;
         }
     </style>
-</head>
-<body>
-    <div class="container">
-        <h1>Login</h1>
 
-        <?php if ($error): ?>
-            <div class="error"><?php echo $error; ?></div>
-        <?php endif; ?>
-
-        <form method="POST" action="login.php">
-            <input type="text" name="username" placeholder="Username" required>
-            <input type="password" name="password" placeholder="Password" required>
-            <input type="submit" value="Login">
-        </form>
-
-        <a href="create_account.php">Don't have an account? Sign up here.</a>
-    </div>
-</body>
-</html>

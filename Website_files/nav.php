@@ -1,12 +1,10 @@
 <!-- navbar.php -->
 <nav>
     <ul>
-        <li><a href="../index.php">Home</a></li>
         <li><a href="/Website_files/add_episode.php">Add Episode</a></li>
         <li><a href="/Website_files/add_character.php">Add Character</a></li>
         <li><a href="/website_files/users.php">Manage Users</a></li>
-      <!--  <li><a href="/Website_files/edit_episode.php">Edit Episode</a></li> 
-        <li><a href="/Website_files/edit_character.php">Edit Character</a></li>  -->
+        <li><a href="logout.php">Logout</a></li>
     </ul>
 </nav>
 <style>
