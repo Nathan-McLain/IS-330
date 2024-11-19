@@ -62,7 +62,12 @@ $result = $conn->query($sql);
     <input type="text" name="description" placeholder="Description" required>
     <input type="text" name="devil_fruit" placeholder="Devil Fruit">
     <input type="text" name="crew" placeholder="Crew">
-    <label>Haki User: <input type="checkbox" name="haki_user"></label>
+    
+    <div class="haki-container">
+    <label for="haki_user">Haki User:</label>
+    <input type="checkbox" name="haki_user" id="haki_user">
+</div>
+
     <input type="number" name="bounty" placeholder="Bounty" required>
     <input type="submit" name="add_character" value="Add Character">
 </form>
