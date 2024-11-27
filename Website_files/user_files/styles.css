@@ -1,10 +1,12 @@
-/* styles.css */
+/* General Page Styling */
 body {
     font-family: Arial, sans-serif;
     background-color: #f4f4f9;
     margin: 0;
+    padding: 20px;
 }
 
+/* Navigation Bar Styling */
 nav ul {
     list-style-type: none;
     padding: 0;
@@ -30,12 +32,199 @@ nav ul li a:hover {
     border-radius: 4px;
 }
 
-.container {
-    max-width: 800px;
-    margin: 20px auto;
-    background: white;
-    padding: 20px;
-    border-radius: 8px;
-    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+/* Form Styling */
+form {
+    margin-bottom: 20px;
+    padding: 10px;
+    border: 1px solid #ddd;
+    background-color: #ffffff;
+}
+
+form input[type="text"],
+form input[type="number"] {
+    margin: 5px 0;
+    padding: 8px;
+    border: 1px solid #ccc;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+/* Specifically target checkboxes for styling */
+form input[type="checkbox"] {
+    margin: 5px 0; /* Adjust this as needed */
+    padding: 0;    /* No padding on the checkbox */
+    width: auto;   /* Remove the width property */
+    height: auto;  /* Remove the height property */
+}
+
+/* Container for the label and checkbox */
+.haki-container {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    margin-bottom: 10px;
+}
+
+.haki-container label {
+    margin-right: 10px;  /* Space between label and checkbox */
+}
+
+.haki-container input[type="checkbox"] {
+    margin-left: 5px;    /* Optional for spacing */
+}
+
+/* Table Styling */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+table th, table td {
+    border: 1px solid #ddd;
+    padding: 10px;
+    text-align: left;
+}
+
+table th {
+    background-color: #4CAF50;
+    color: white;
+}
+
+table tr:nth-child(even) {
+    background-color: #f2f2f2;
+}
+
+table tr:hover {
+    background-color: #ddd;
+}
+
+table a {
+    color: #007BFF;
+    text-decoration: none;
+}
+
+table a:hover {
+    text-decoration: underline;
+}
+
+/* Bottom padding for the page */
+body {
+    padding-bottom: 100px; /* Adjust this value as needed */
+}
+
+form {
+    background-color: transparent; /* Remove the white box behind buttons */
+    margin: 0; /* Remove unnecessary spacing */
+    padding: 0; /* Remove unnecessary spacing */
+    display: inline; /* Ensure forms for buttons align inline */
+}
+
+/* General Styling for Buttons */
+input[type="submit"], a.edit-button {
+    padding: 10px 15px;
+    border: none;
+    border-radius: 4px;
+    font-size: 14px;
+    font-weight: bold;
     text-align: center;
+    text-decoration: none;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+/* Specific Edit Button Styling */
+a.edit-button {
+    background-color: #007BFF;
+    color: white;
+}
+
+a.edit-button:hover {
+    background-color: #0056b3; 
+    transform: scale(1.05); /* Slightly larger on hover */
+}
+
+/* Add Character Button Styling */
+form input[type="submit"][name="add_character"] {
+    background-color: #4CAF50; /* Green */
+    color: white;
+}
+
+form input[type="submit"][name="add_character"]:hover {
+    background-color: #3A9D40; /* Darker green */
+    transform: scale(1.05);
+}
+
+/* Search Button Styling */
+form input[type="submit"][name="search_character"] {
+    background-color: #007BFF; /* Blue */
+    color: white;
+}
+
+form input[type="submit"][name="search_character"]:hover {
+    background-color: #0015ff; /* Darker blue */
+    transform: scale(1.05);
+}
+/* Delete Button Styling */
+.delete-button {
+    background-color: #FF4D4D; /* Red */
+    color: white;
+    padding: 8px 12px;
+    border: none;
+    border-radius: 4px;
+    font-size: 14px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s ease, color 0.3s ease, transform 0.2s ease;
+}
+
+/* Hover Effect for Delete Button */
+.delete-button:hover {
+    background-color: #CC0000; /* Darker red */
+    color: #FFF5F5; /* Slightly lighter white */
+    transform: scale(1.05); /* Slightly larger */
+}
+
+/* Style for Search Button */
+.search-button {
+    background-color: #007BFF; /* Blue */
+    color: #fffbfb; /* Text color */
+    padding: 10px 20px;
+    border: 2px solid #ccc; /* Border styling */
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.search-button:hover {
+    background-color: #0015ff; /* Hover effect */
+}
+
+/* Style for Add Episode Button */
+.add-episode-button {
+    background-color: #4CAF50; /* Green background */
+    color: white;
+    padding: 10px 20px;
+    border: 2px solid #4CAF50;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.add-episode-button:hover {
+    background-color: #45a049; /* Darker green on hover */
+}
+
+.container p {
+    color: #666;
+    font-style: italic;
+    margin-top: 20px;
+}
+.container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+.character-card {
+    flex: 0 1 calc(33.333% - 20px);
+    margin: 10px;
 }
