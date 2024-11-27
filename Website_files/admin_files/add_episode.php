@@ -1,5 +1,5 @@
 <h1>Episodes List</h1>
-
+<link rel="stylesheet" href="styles.css">
 <?php 
 include 'nav.php';
 include '../db_connect.php';
@@ -49,7 +49,7 @@ $result = $conn->query($sql);
 <!-- Search Form -->
 <form method="POST" action="">
     <input type="text" name="search_term" placeholder="Search by episode name or number">
-    <input type="submit" name="search_episode" value="Search">
+    <input type="submit" name="search_episode" value="Search" class="search-button"> <!-- Add class for styling -->
 </form>
 
 <!-- Add New Episode Form -->
@@ -59,7 +59,7 @@ $result = $conn->query($sql);
     <input type="number" name="episode_number" placeholder="Episode Number" required>
     <input type="date" name="air_date" placeholder="Air Date" required>
     <input type="text" name="duration" placeholder="Duration" required>
-    <input type="submit" name="add_episode" value="Add Episode">
+    <input type="submit" name="add_episode" value="Add Episode" class="add-episode-button"> <!-- Add class for styling -->
 </form>
 
 <!-- Display Episodes Table -->
@@ -85,10 +85,10 @@ $result = $conn->query($sql);
                 echo "<td>" . $row["air_date"] . "</td>";
                 echo "<td>" . $row["duration"] . "</td>";
                 echo "<td>
-                     <a href='edit_episode.php?episode_id=" . $row["episode_id"] . "'>Edit</a>
+                     <a href='edit_episode.php?episode_id=" . $row["episode_id"] . "' class='edit-button'>Edit</a>
                     <form method='POST' action='' style='display:inline-block;'>
                     <input type='hidden' name='episode_id' value='" . $row["episode_id"] . "'>
-                    <input type='submit' name='delete_episode' value='Delete'>
+                    <input type='submit' name='delete_episode' value='Delete' class='delete-button'> <!-- Add class for styling -->
                      </form>
                     </td>";
                 echo "</tr>";
@@ -99,9 +99,6 @@ $result = $conn->query($sql);
         ?>
     </tbody>
 </table>
-
-
-
 
 <?php
 $conn->close();

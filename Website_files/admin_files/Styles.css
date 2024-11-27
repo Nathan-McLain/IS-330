@@ -112,3 +112,103 @@ table a:hover {
 body {
     padding-bottom: 100px; /* Adjust this value as needed */
 }
+
+form {
+    background-color: transparent; /* Remove the white box behind buttons */
+    margin: 0; /* Remove unnecessary spacing */
+    padding: 0; /* Remove unnecessary spacing */
+    display: inline; /* Ensure forms for buttons align inline */
+}
+
+/* General Styling for Buttons */
+input[type="submit"], a.edit-button {
+    padding: 10px 15px;
+    border: none;
+    border-radius: 4px;
+    font-size: 14px;
+    font-weight: bold;
+    text-align: center;
+    text-decoration: none;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+/* Specific Edit Button Styling */
+a.edit-button {
+    background-color: #007BFF;
+    color: white;
+}
+
+a.edit-button:hover {
+    background-color: #0056b3; 
+    transform: scale(1.05); /* Slightly larger on hover */
+}
+
+/* Add Character Button Styling */
+form input[type="submit"][name="add_character"] {
+    background-color: #4CAF50; /* Green */
+    color: white;
+}
+
+form input[type="submit"][name="add_character"]:hover {
+    background-color: #3A9D40; /* Darker green */
+    transform: scale(1.05);
+}
+
+/* Search Button Styling */
+form input[type="submit"][name="search_character"] {
+    background-color: #007BFF; /* Blue */
+    color: white;
+}
+
+form input[type="submit"][name="search_character"]:hover {
+    background-color: #0015ff; /* Darker blue */
+    transform: scale(1.05);
+}
+/* Delete Button Styling */
+.delete-button {
+    background-color: #FF4D4D; /* Red */
+    color: white;
+    padding: 8px 12px;
+    border: none;
+    border-radius: 4px;
+    font-size: 14px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s ease, color 0.3s ease, transform 0.2s ease;
+}
+
+/* Hover Effect for Delete Button */
+.delete-button:hover {
+    background-color: #CC0000; /* Darker red */
+    color: #FFF5F5; /* Slightly lighter white */
+    transform: scale(1.05); /* Slightly larger */
+}
+
+/* Style for Search Button */
+.search-button {
+    background-color: #007BFF; /* Blue */
+    color: #fffbfb; /* Text color */
+    padding: 10px 20px;
+    border: 2px solid #ccc; /* Border styling */
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.search-button:hover {
+    background-color: #0015ff; /* Hover effect */
+}
+
+/* Style for Add Episode Button */
+.add-episode-button {
+    background-color: #4CAF50; /* Green background */
+    color: white;
+    padding: 10px 20px;
+    border: 2px solid #4CAF50;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.add-episode-button:hover {
+    background-color: #45a049; /* Darker green on hover */
+}

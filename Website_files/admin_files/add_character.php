@@ -3,7 +3,7 @@
 <link rel="stylesheet" href="styles.css">
 
 <?php include 'nav.php';
-      include '../db_connect.php';
+include '../db_connect.php';
 
 // ADD a new character
 if (isset($_POST['add_character'])) {
@@ -42,7 +42,6 @@ if (isset($_POST['search_character'])) {
     $search_term = $_POST['search_term'];
     $sql = "SELECT * FROM Characters WHERE name LIKE '%$search_term%' OR crew LIKE '%$search_term%'";
 } else {
-    // Default query to show all characters
     $sql = "SELECT * FROM Characters";
 }
 
@@ -64,9 +63,9 @@ $result = $conn->query($sql);
     <input type="text" name="crew" placeholder="Crew">
     
     <div class="haki-container">
-    <label for="haki_user">Haki User:</label>
-    <input type="checkbox" name="haki_user" id="haki_user">
-</div>
+        <label for="haki_user">Haki User:</label>
+        <input type="checkbox" name="haki_user" id="haki_user">
+    </div>
 
     <input type="number" name="bounty" placeholder="Bounty" required>
     <input type="submit" name="add_character" value="Add Character">
@@ -99,10 +98,10 @@ $result = $conn->query($sql);
                 echo "<td>" . ($row["haki_user"] ? 'Yes' : 'No') . "</td>";
                 echo "<td>" . number_format($row["bounty"]) . "</td>";
                 echo "<td>
-                    <a href='edit_character.php?character_id=" . $row["character_id"] . "'>Edit</a>
-                    <form method='POST' action='' style='display:inline-block;'>
+                    <a href='edit_character.php?character_id=" . $row["character_id"] . "' class='edit-button'>Edit</a>
+                    <form method='POST' action='' class='delete-form' style='display:inline-block;'>
                         <input type='hidden' name='character_id' value='" . $row["character_id"] . "'>
-                        <input type='submit' name='delete_character' value='Delete'>
+                        <input type='submit' name='delete_character' value='Delete' class='delete-button'>
                     </form>
                 </td>";
                 echo "</tr>";
